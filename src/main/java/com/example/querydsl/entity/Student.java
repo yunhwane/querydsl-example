@@ -25,4 +25,8 @@ public class Student {
         this.name = name;
         this.age = age;
     }
+
+    public void addAcademy(Academy academy) {
+        this.academy = academy;
+    }
 }
