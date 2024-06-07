@@ -9,7 +9,7 @@ import lombok.AccessLevel;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 
-@Entity(name = "academy")
+@Entity(name = "ACADEMY")
 @Getter
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
 public class Academy {
@@ -22,5 +22,6 @@ public class Academy {
 
     public Academy(String name, String location) {
         this.name = name;
+        this.location = location;
     }
 }
