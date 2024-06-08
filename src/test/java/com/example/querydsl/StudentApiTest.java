@@ -7,13 +7,25 @@ import org.junit.jupiter.api.Test;
 public class StudentApiTest extends RestApiTest {
 
     @Test
-    @DisplayName("학생 이름으로 학생 조회 - 아카데미 fetch 테스트")
+    @DisplayName("학생 이름으로 학생 조회 - fetch join 없이 사용")
     public void getStudentsByNameTest() {
         RestAssured.given()
                 .param("name", "바보")
                 .when()
-                .get("http://localhost:8081/students")
+                .get("http://localhost:8081/v1/students")
                 .then()
                 .statusCode(200);
     }
+
+    @Test
+    @DisplayName("학생 이름으로 학생 조회 - fetch join 사용")
+    public void getStudentsByNameFetchAcademyTest() {
+        RestAssured.given()
+                .param("name", "바보")
+                .when()
+                .get("http://localhost:8081/v2/students")
+                .then()
+                .statusCode(200);
+    }
+
 }
