@@ -28,4 +28,16 @@ public class StudentApiTest extends RestApiTest {
                 .statusCode(200);
     }
 
+    @Test
+    @DisplayName("학생 이름으로 학생 존재 여부 조회")
+    public void existsByNameTest() {
+        RestAssured.given()
+                .param("name", "바보")
+                .when()
+                .get("http://localhost:8081/exists/students")
+                .then()
+                .statusCode(200);
+    }
+
+
 }

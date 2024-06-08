@@ -28,5 +28,10 @@ public class StudentRepositoryCustom {
                 .fetch();
     }
 
-
+    public boolean existsByName(String name) {
+        return jpaQueryFactory.selectOne()
+                .from(QStudent.student)
+                .where(QStudent.student.name.eq(name))
+                .fetchFirst() != null;
+    }
 }
