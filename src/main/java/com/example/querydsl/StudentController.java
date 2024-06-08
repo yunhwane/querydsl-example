@@ -33,4 +33,10 @@ public class StudentController {
     public ResponseEntity<?> existsByName(@RequestParam String name) {
         return ResponseEntity.ok(studentRepository.existsByName(name));
     }
+
+    @GetMapping("/v3/students")
+    public ResponseEntity<?> getStudentsByNameAndAge(@RequestParam(required = false) String name, @RequestParam(defaultValue = "0") int age) {
+        List<StudentResponseDto> students = studentRepository.findByNameAndAge(name, age).stream().map(StudentResponseDto::new).toList();
+        return ResponseEntity.ok(students);
+    }
 }
