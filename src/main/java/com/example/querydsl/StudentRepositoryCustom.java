@@ -21,4 +21,12 @@ public class StudentRepositoryCustom {
                 .fetch();
     }
 
+    public List<Student> findByNameFetchAcademy(String name) {
+        return jpaQueryFactory.selectFrom(QStudent.student)
+                .join(QStudent.student.academy).fetchJoin()
+                .where(QStudent.student.name.eq(name))
+                .fetch();
+    }
+
+
 }

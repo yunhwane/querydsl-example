@@ -17,9 +17,17 @@ public class StudentController {
 
     private final StudentRepositoryCustom studentRepository;
 
-    @GetMapping("/students")
+    @GetMapping("/v1/students")
     public ResponseEntity<?> getStudentsByName(@RequestParam String name) {
         List<StudentResponseDto> students = studentRepository.findByName(name).stream().map(StudentResponseDto::new).toList();
         return ResponseEntity.ok(students);
     }
+
+    @GetMapping("/v2/students")
+    public ResponseEntity<?> getStudentsByNameFetchAcademy(@RequestParam String name) {
+        List<StudentResponseDto> students = studentRepository.findByNameFetchAcademy(name).stream().map(StudentResponseDto::new).toList();
+        return ResponseEntity.ok(students);
+    }
+
+
 }
