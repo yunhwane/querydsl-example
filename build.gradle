@@ -40,6 +40,8 @@ dependencies {
     annotationProcessor "jakarta.annotation:jakarta.annotation-api"
     annotationProcessor "jakarta.persistence:jakarta.persistence-api"
 
+    testImplementation group: 'io.rest-assured', name: 'rest-assured', version: '5.4.0'
+
 }
 
 tasks.named('test') {
