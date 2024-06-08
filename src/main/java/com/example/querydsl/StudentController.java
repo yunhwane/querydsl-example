@@ -29,5 +29,8 @@ public class StudentController {
         return ResponseEntity.ok(students);
     }
 
-
+    @GetMapping("/exists/students")
+    public ResponseEntity<?> existsByName(@RequestParam String name) {
+        return ResponseEntity.ok(studentRepository.existsByName(name));
+    }
 }
